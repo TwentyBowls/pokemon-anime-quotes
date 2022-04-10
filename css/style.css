@@ -55,6 +55,13 @@ button {
      margin: 0 2px;
 }
 
+button:hover {
+     background: #9d9ec0;
+}
+
+button:active {
+     background: #bcbee6;
+}
 /* .randBtn {
      background: #f9f8f8;
      border: 2px solid #7e7f9a;
