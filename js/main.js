@@ -1,27 +1,9 @@
 let sprite = document.querySelector(".sprite")
 let says = document.querySelector(".says")
 let animeQuote = document.querySelector(".animeQuote")
-// let randName = ""
-// let sprite = undefined
-// let says = undefined
-// let animeQuote = undefined
-// let randName = undefined
-// let pokemonType = "a"
 
 document.querySelector(".choiceBtn").addEventListener("click", genPokeChoice)
 document.querySelector(".randBtn").addEventListener("click", genPokeRand)
-
-
-// fetch("https://random-names-api.herokuapp.com/random")
-// .then(res => res.json())
-// .then(data => {
-//     randName = data.body.name
-//     console.log(`randName inside of the fetch is ${randName}`)
-// })
-// .catch(err => {
-//     console.log(`error ${err}`)
-// }) 
-
 
 function genPokeChoice(){
     //random name fetch
@@ -29,6 +11,7 @@ function genPokeChoice(){
 }
 
 function genPokeRand(){
+    //choose for me fetch
     fetchPokeRand()
 }
 
@@ -45,9 +28,9 @@ function fetchPokeChoice(){
         // capitalizes the first letter of the pokemon name type
         pokemonType = pokemonType.charAt(0).toUpperCase() + pokemonType.slice(1)
         // says = `${randName} the ${data.name} says...`
-        console.log(`sprite url is ${sprite}`)
-        console.log(`the pokemon is a ${pokemonType} `)
-        fetchName(pokemonType)
+        // console.log(`sprite url is ${sprite}`)
+        // console.log(`the pokemon is a ${pokemonType} `)
+        setInterval(fetchName(pokemonType), 400)
     })
     .catch(err => {
         console.log(`error ${err}`)
@@ -67,9 +50,9 @@ function fetchPokeRand(){
         // capitalizes the first letter of the pokemon name type
         pokemonType = pokemonType.charAt(0).toUpperCase() + pokemonType.slice(1)
         // says = `${randName} the ${data.name} says...`
-        console.log(`sprite url is ${sprite}`)
-        console.log(`the pokemon is a ${pokemonType} `)
-        fetchName(pokemonType)
+        // console.log(`sprite url is ${sprite}`)
+        // console.log(`the pokemon is a ${pokemonType} `)
+        setInterval(fetchName(pokemonType), 300)
     })
     .catch(err => {
         console.log(`error ${err}`)
@@ -81,9 +64,11 @@ function fetchName(pokemonName){
     .then(res => res.json())
     .then(nam => {
         randName = nam.body.name
-        console.log(`randName inside of the fetch is ${randName}`)
+        // console.log(`randName inside of the fetch is ${randName}`)
         says.innerText = (`${randName} the ${pokemonName} says...`)
-        fetchQuote()
+        says.classList.add("slideup")
+        setInterval( _ => says.classList.remove("slideup"), 300)
+        setInterval(fetchQuote(), 300)
     })
     .catch(err => {
         console.log(`error ${err}`)
@@ -95,7 +80,9 @@ function fetchQuote(){
     .then(response => response.json())
     .then(quote => {
         animeQuote.innerText = `"${quote.quote}"`
-        console.log(`anime quote says: ${animeQuote}`)    
+        animeQuote.classList.add("slideup")
+        setInterval( _ => animeQuote.classList.remove("slideup"), 300)
+        // console.log(`anime quote says: ${animeQuote}`)    
     })
     .catch(err => {
         console.log(`error ${err}`)

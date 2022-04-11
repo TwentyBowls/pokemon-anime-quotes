@@ -53,6 +53,7 @@ button {
      border: 0px;
      height: 35px;
      margin: 0 2px;
+     padding: 0 10px;
 }
 
 button:hover {
@@ -62,16 +63,12 @@ button:hover {
 button:active {
      background: #bcbee6;
 }
-/* .randBtn {
-     background: #f9f8f8;
-     border: 2px solid #7e7f9a;
-     color: #272838;
-} */
 
 input {
+     color: #272838;
      height: 35px;
      border: 1px solid #7e7f9a;
-     padding-left: 5px;
+     padding-left: 10px;
 }
 
 
@@ -89,12 +86,9 @@ section {
 }
 
 .content {
-     width: 50%;
+     width: 55%;
+     max-width: 700px;
      margin: 0 auto;
-}
-
-footer {
-
 }
 
 img {
@@ -103,3 +97,18 @@ img {
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
+.slideup {
+     animation: slideup 0.3s linear;
+     animation-fill-mode: both;
+}
+
+@keyframes slideup{
+     from {
+          transform: translateY(15px);
+          opacity: 0;
+     }
+     to {
+          transform: translateY(0px);
+          opacity: 1;
+     }
+}
