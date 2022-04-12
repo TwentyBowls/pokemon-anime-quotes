@@ -16,7 +16,7 @@ function genPokeRand(){
 }
 
 function fetchPokeChoice(){
-    let input = document.querySelector(".input").value
+    let input = document.querySelector(".input").value.toLowerCase().split(" ").join("-")
     //pokemon fetch
     fetch(`https://pokeapi.co/api/v2/pokemon/${input}`)
     .then(res => res.json())
